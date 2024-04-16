@@ -6,5 +6,5 @@ Se divide en 3 secciones importantes: Estudiantes, Profesores y Notas. Para cada
 # Librerías incluidas
 Angular Material
 
-#Ejecución 
-Para ejecutar de debe instalar las dependencias del proyecto (npm i)
+# Ejecución 
+Para ejecutar el proyecto se de debe instalar las dependencias (npm i)
