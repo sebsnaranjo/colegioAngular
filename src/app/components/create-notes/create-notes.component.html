@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="toolbar-wrapper">
+        <mat-toolbar>
+            <span class="toolbar-text">Crear notas</span>
+        </mat-toolbar>
+    </div>
+    <mat-card>
+        <form [formGroup]="form" (ngSubmit)="agregarNota()">
+            <mat-grid-list cols="4" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="espacio">
+                        <mat-label>Ingrese la materia</mat-label>
+                        <input matInput formControlName="Nombre">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="3" [rowspan]="5">
+                    <img class="logo" src="./assets/crear.jpeg">
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="espacio">
+                        <mat-label>Seleccione un estudiante</mat-label>
+                        <mat-select formControlName="IdEstudiante" [(ngModel)]="selectedEstudiante" (selectionChange)="onEstudianteChange($event.value)">
+                          <mat-option *ngFor="let estudiante of estudiantes; let i = index" [value]="estudiante.IdEstudiante">{{ estudiante.Nombre }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="espacio">
+                        <mat-label>Seleccione un profesor</mat-label>
+                        <mat-select formControlName="IdProfesor" [(ngModel)]="selectedProfesor" (selectionChange)="onProfesorChange($event.value)">
+                          <mat-option *ngFor="let profesor of profesores; let i = index" [value]="profesor.IdProfesor">{{ profesor.Nombre }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="espacio">
+                        <mat-label>Ingrese el valor de la nota</mat-label>
+                        <input matInput formControlName="Valor" inputMode="numeric">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Aceptar</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,58 @@
+<div class="example-spacer">
+    <button mat-raised-button color="primary" routerLink="/crear-nota">Agregar nota</button>
+</div>
+
+<div class="container">
+    <mat-form-field class="custom-form-field">
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Julian" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="IdNota">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID Nota </th>
+            <td mat-cell *matCellDef="let element"> {{element.IdNota}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NombreProfesor">
+            <th mat-header-cell *matHeaderCellDef> Profesor asignado </th>
+            <td mat-cell *matCellDef="let element"> {{element.NombreProfesor}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NombreEstudiante">
+            <th mat-header-cell *matHeaderCellDef> Estudiante asignado </th>
+            <td mat-cell *matCellDef="let element"> {{element.NombreEstudiante}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Valor">
+            <th mat-header-cell *matHeaderCellDef> Valor </th>
+            <td mat-cell *matCellDef="let element"> {{element.Valor}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element" style="text-align: center;">
+                <a class="pointer" (click)="editarNota(element)" style="color: #1887b0;"
+                    matTooltip="Editar nota">
+                    <mat-icon>edit</mat-icon>
+                </a>
+                <a class="pointer" (click)="eliminarNota(element)" style="color: #1887b0;"
+                    matTooltip="Eliminar nota">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
+<h2 *ngIf="listNotas.length == 0"> No hay notas por mostrar </h2>

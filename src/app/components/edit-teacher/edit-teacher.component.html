@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="toolbar-wrapper">
+        <mat-toolbar>
+            <span class="toolbar-text">Editar profesor</span>
+        </mat-toolbar>
+    </div>
+    <mat-card>
+        <form [formGroup]="form" (ngSubmit)="editarProfesor()">
+            <mat-grid-list cols="4" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="espacio">
+                        <mat-label>Edíte el nombre</mat-label>
+                        <input matInput formControlName="Nombre">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="3" [rowspan]="5">
+                    <img class="logo" src="./assets/editar.jpg">
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Editar</button>
+                </mat-grid-tile>
+<!--                 <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightblue'">
+
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightblue'">
+
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightblue'">
+
+                </mat-grid-tile> -->
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

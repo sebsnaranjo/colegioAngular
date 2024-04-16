@@ -1,0 +1,43 @@
+<div class="example-spacer">
+    <button mat-raised-button color="primary" routerLink="/crear-estudiante">Agregar estudiante</button>
+</div>
+
+<div class="container">
+    <mat-form-field class="custom-form-field">
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Julian" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="IdEstudiante">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID Estudiante </th>
+            <td mat-cell *matCellDef="let element"> {{element.IdEstudiante}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element" style="text-align: center;">
+                <a class="pointer" (click)="editarEstudiante(element)" style="color: #1887b0;"
+                    matTooltip="Editar usuario">
+                    <mat-icon>edit</mat-icon>
+                </a>
+                <a class="pointer" (click)="eliminarEstudiante(element)" style="color: #1887b0;"
+                    matTooltip="Eliminar usuario">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
+<h2 *ngIf="listEstudiantes.length == 0"> No hay estudiantes por mostrar </h2>
