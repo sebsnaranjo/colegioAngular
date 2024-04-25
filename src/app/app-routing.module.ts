@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TableInfoComponent } from './components/table-info/table-info.component';
+import { TableInfoComponent } from './components/student/table-info/table-info.component';
 import { HomeComponent } from './components/home/home.component';
-import { CreateStudentComponent } from './components/create-student/create-student.component';
-import { EditStudentComponent } from './components/edit-student/edit-student.component';
-import { TableTeacherComponent } from './components/table-teacher/table-teacher.component';
-import { CreateTeacherComponent } from './components/create-teacher/create-teacher.component';
-import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.component';
-import { TableNotesComponent } from './components/table-notes/table-notes.component';
-import { CreateNotesComponent } from './components/create-notes/create-notes.component';
-import { EditNotesComponent } from './components/edit-notes/edit-notes.component';
+import { CreateStudentComponent } from './components/student/create-student/create-student.component';
+import { EditStudentComponent } from './components/student/edit-student/edit-student.component';
+import { TableTeacherComponent } from './components/teacher/table-teacher/table-teacher.component';
+import { CreateTeacherComponent } from './components/teacher/create-teacher/create-teacher.component';
+import { EditTeacherComponent } from './components/teacher/edit-teacher/edit-teacher.component';
+import { TableNotesComponent } from './components/notes/table-notes/table-notes.component';
+import { CreateNotesComponent } from './components/notes/create-notes/create-notes.component';
+import { EditNotesComponent } from './components/notes/edit-notes/edit-notes.component';
 
 const routes: Routes = [
   {path: 'home', component:HomeComponent},
