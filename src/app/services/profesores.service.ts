@@ -8,6 +8,7 @@ import { ProfesorData } from '../interfaces/profesor.interface';
 export class ProfesoresService {
 
   urlAPI = '/api/Profesor';
+  urlAPI_second = '/api/Profesor';
 
   constructor(private http: HttpClient) { }
 
